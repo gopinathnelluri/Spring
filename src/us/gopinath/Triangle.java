@@ -2,10 +2,11 @@ package us.gopinath;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware, BeanNameAware{
+public class Triangle /*implements ApplicationContextAware, BeanNameAware, InitializingBean*/{
 	
 	private Point pointA;
 	private Point pointB;
@@ -41,6 +42,7 @@ public class Triangle implements ApplicationContextAware, BeanNameAware{
 		System.out.println("point C = ("+getPointC().getX()+","+getPointC().getY()+")");
 	}
 
+	/*
 	@Override
 	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		// TODO Auto-generated method stub
@@ -51,5 +53,20 @@ public class Triangle implements ApplicationContextAware, BeanNameAware{
 	public void setBeanName(String beanName) {
 		// TODO Auto-generated method stub
 		System.out.println("bean name is: "+beanName);
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("InitializingBean init method called for triangle");
+	}
+	*/
+	
+	public void myInit() {
+		System.out.println("myInit method called for triangle");
+	}
+	
+	public void cleanUp() {
+		System.out.println("cleanUp method called for triangle");
 	}
 }

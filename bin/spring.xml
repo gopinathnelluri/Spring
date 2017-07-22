@@ -3,36 +3,19 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
 "http://www.springframework.org/dtd/spring-beans.dtd">
 
-<beans>
+<beans default-init-method="myInit" default-destroy-method="cleanUp">
 
-	<bean id="parenttrianglist" class="us.gopinath.Triangle" abstract="true">
-		<property name="points" >
-			<list>
-				<ref bean="pointA"/>
-			</list>
-		</property>
-	</bean>
+
 	
-	<bean id="trianglist" class="us.gopinath.Triangle" parent="parenttrianglist" abstract="true">
-		<property name="points" >
-			<list merge="true">
-				<ref bean="pointA"/>
-			</list>
-		</property>
-	</bean>
-	
-	
-	<bean id="parenttriangle" class="us.gopinath.Triangle" >
+	<bean id="triangle" class="us.gopinath.Triangle"  >
 		<property name="pointA" ref="pointA"></property>
-	</bean>
-	<bean id="triangle" class="us.gopinath.Triangle" parent="parenttriangle">
 		<property name="pointB" ref="pointB"></property>
 		<property name="pointC" ref="pointC"></property>
 	</bean>
+	
+	
 
-	<bean id="triangle1" class="us.gopinath.Triangle" parent="parenttriangle">
-		<property name="pointB" ref="pointB"></property>
-	</bean>
+	
 
 
 	<bean id="pointA" class="us.gopinath.Point">
@@ -48,4 +31,7 @@
 		<property name="y" value="0"></property>
 	</bean>
 	
+	<bean class="us.gopinath.DisplayNameBeanPostProcessor">
+	
+	</bean>
 </beans>
