@@ -34,4 +34,5 @@
 	<bean class="us.gopinath.DisplayNameBeanPostProcessor">
 	
 	</bean>
+	<bean class="us.gopinath.MyBeanFactoryPostProcessor"></bean>
 </beans>
