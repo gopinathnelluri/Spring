@@ -6,20 +6,24 @@
 <beans>
 	<bean id="triangle" class="us.gopinath.Triangle">
 		<property name="pointA" ref="zeroPoint"></property>
-		<property name="pointB" ref="onePoint"></property>
-		<property name="pointC" ref="twoPoint"></property>
+		<property name="pointB">
+			<bean class="us.gopinath.Point">
+				<property name="x" value="-20"></property>
+				<property name="y" value="0"></property>
+			</bean>
+		</property>
+		<property name="pointC" >
+			<bean class="us.gopinath.Point">
+				<property name="x" value="20"></property>
+				<property name="y" value="0"></property>
+			</bean>
+		</property>
 	</bean>
 	<bean id="zeroPoint" class="us.gopinath.Point">
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	<bean id="onePoint" class="us.gopinath.Point">
-		<property name="x" value="-20"></property>
-		<property name="y" value="0"></property>
-	</bean>
-	<bean id="twoPoint" class="us.gopinath.Point">
-		<property name="x" value="20"></property>
-		<property name="y" value="0"></property>
-	</bean>
+	
+	
 	
 </beans>
