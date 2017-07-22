@@ -19,8 +19,8 @@
 
 
 	<bean id="pointA" class="us.gopinath.Point">
-		<property name="x" value="0"></property>
-		<property name="y" value="0"></property>
+		<property name="x" value="${pointA.pointX}"></property>
+		<property name="y" value="${pointA.pointX}"></property>
 	</bean>
 	<bean id="pointB" class="us.gopinath.Point">
 		<property name="x" value="-20"></property>
@@ -35,4 +35,11 @@
 	
 	</bean>
 	<bean class="us.gopinath.MyBeanFactoryPostProcessor"></bean>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties"></property>
+	</bean>
+
+	
+
 </beans>
