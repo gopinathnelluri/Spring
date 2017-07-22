@@ -4,24 +4,18 @@
 "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="triangle" class="us.gopinath.Triangle">
-		<property name="points">
-			<list>
-				<ref bean="zeroPoint"></ref>
-				<ref bean="onePoint"></ref>
-				<ref bean="twoPoint"></ref>
-			</list>
-		</property>
+	<bean id="triangle" class="us.gopinath.Triangle" autowire="byName">
+		
 	</bean>
-	<bean id="zeroPoint" class="us.gopinath.Point">
+	<bean id="pointA" class="us.gopinath.Point">
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	<bean id="onePoint" class="us.gopinath.Point">
+	<bean id="pointB" class="us.gopinath.Point">
 		<property name="x" value="-20"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	<bean id="twoPoint" class="us.gopinath.Point">
+	<bean id="pointC" class="us.gopinath.Point">
 		<property name="x" value="20"></property>
 		<property name="y" value="0"></property>
 	</bean>
