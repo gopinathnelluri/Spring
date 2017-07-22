@@ -4,6 +4,24 @@
 "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
+
+	<bean id="parenttrianglist" class="us.gopinath.Triangle" abstract="true">
+		<property name="points" >
+			<list>
+				<ref bean="pointA"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="trianglist" class="us.gopinath.Triangle" parent="parenttrianglist" abstract="true">
+		<property name="points" >
+			<list merge="true">
+				<ref bean="pointA"/>
+			</list>
+		</property>
+	</bean>
+	
+	
 	<bean id="parenttriangle" class="us.gopinath.Triangle" >
 		<property name="pointA" ref="pointA"></property>
 	</bean>
