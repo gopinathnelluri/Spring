@@ -4,7 +4,7 @@
 "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="triangle" class="us.gopinath.Triangle">
+	<bean id="triangle" class="us.gopinath.Triangle" name="triangle-name">
 		<property name="pointA" ref="zeroPoint"></property>
 		<property name="pointB">
 			<bean class="us.gopinath.Point">
@@ -24,6 +24,6 @@
 		<property name="y" value="0"></property>
 	</bean>
 	
-	
+	<alias name="triangle" alias="triangle-alias"/>
 	
 </beans>
