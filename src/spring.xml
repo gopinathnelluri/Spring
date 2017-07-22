@@ -5,7 +5,9 @@
 
 <beans>
 	<bean id="triangle" class="us.gopinath.Triangle" name="triangle-name">
-		<property name="pointA" ref="zeroPoint"></property>
+		<property name="pointA" >
+			<ref bean="zeroPoint"/>
+		</property>
 		<property name="pointB">
 			<bean class="us.gopinath.Point">
 				<property name="x" value="-20"></property>
