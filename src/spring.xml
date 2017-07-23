@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
-"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-<beans default-init-method="myInit" default-destroy-method="cleanUp">
-
+   <context:annotation-config/>
+   
 	<alias name="circle" alias="shape"/>
-	
+	<!-- 
 	<bean id="triangle" class="us.gopinath.Triangle"  >
 		<property name="pointA" ref="pointA"></property>
 		<property name="pointB" ref="pointB"></property>
 		<property name="pointC" ref="pointC"></property>
 	</bean>
-	
+	 -->
 	
 	<bean id="circle" class="us.gopinath.Circle"  >
-		<property name="center" ref="pointA"></property>
+	<!-- 	<property name="center" ref="pointA"></property>  -->
 	</bean>
 	
 	
-
-	
-
-
-	<bean id="pointA" class="us.gopinath.Point">
+	<bean id="pointA" class="us.gopinath.Point" >
+		<qualifier value="circleRelated"/>
 		<property name="x" value="${pointA.pointX}"></property>
 		<property name="y" value="${pointA.pointX}"></property>
 	</bean>
+
 	<bean id="pointB" class="us.gopinath.Point">
 		<property name="x" value="-20"></property>
 		<property name="y" value="0"></property>
@@ -35,18 +38,24 @@
 		<property name="x" value="20"></property>
 		<property name="y" value="0"></property>
 	</bean>
+	
+	
+	
 	<!--  
 	<bean class="us.gopinath.DisplayNameBeanPostProcessor">
 	
 	</bean>
 	<bean class="us.gopinath.MyBeanFactoryPostProcessor"></bean>
 	-->
+	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="pointsconfig.properties"></property>
 	</bean>
 
-	
-	
-	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
 
+	<!-- 
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+ 	-->
+	
 </beans>
