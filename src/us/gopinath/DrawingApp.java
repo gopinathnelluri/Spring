@@ -16,6 +16,7 @@ public class DrawingApp {
 		//BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 		
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		//must to register shutdown hook
 		context.registerShutdownHook();
 		Shape shape = (Shape) context.getBean("shape");
 		shape.draw();
