@@ -5,12 +5,17 @@
 
 <beans default-init-method="myInit" default-destroy-method="cleanUp">
 
-
+	<alias name="circle" alias="shape"/>
 	
 	<bean id="triangle" class="us.gopinath.Triangle"  >
 		<property name="pointA" ref="pointA"></property>
 		<property name="pointB" ref="pointB"></property>
 		<property name="pointC" ref="pointC"></property>
+	</bean>
+	
+	
+	<bean id="circle" class="us.gopinath.Circle"  >
+		<property name="center" ref="pointA"></property>
 	</bean>
 	
 	
@@ -30,16 +35,18 @@
 		<property name="x" value="20"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	
+	<!--  
 	<bean class="us.gopinath.DisplayNameBeanPostProcessor">
 	
 	</bean>
 	<bean class="us.gopinath.MyBeanFactoryPostProcessor"></bean>
-	
+	-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="pointsconfig.properties"></property>
 	</bean>
 
 	
+	
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
 
 </beans>

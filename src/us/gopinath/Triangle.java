@@ -6,7 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle /*implements ApplicationContextAware, BeanNameAware, InitializingBean*/{
+public class Triangle implements Shape /*implements ApplicationContextAware, BeanNameAware, InitializingBean*/{
 	
 	private Point pointA;
 	private Point pointB;
@@ -37,6 +37,7 @@ public class Triangle /*implements ApplicationContextAware, BeanNameAware, Initi
 	}
 
 	public void draw() {
+		System.out.println("Drawing a Triangle");
 		System.out.println("point A = ("+getPointA().getX()+","+getPointA().getY()+")");
 		System.out.println("point B = ("+getPointB().getX()+","+getPointB().getY()+")");
 		System.out.println("point C = ("+getPointC().getX()+","+getPointC().getY()+")");
