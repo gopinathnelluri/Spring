@@ -8,8 +8,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-   <context:annotation-config/>
-   
+      
 	<alias name="circle" alias="shape"/>
 	<!-- 
 	<bean id="triangle" class="us.gopinath.Triangle"  >
@@ -52,10 +51,17 @@
 		<property name="locations" value="pointsconfig.properties"></property>
 	</bean>
 
+
+	<!--
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
 
-	<!-- 
+	 
 	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+ 	
+ 	instead of all seperate annotations we can use <context:annotation-config/>
+ 	
  	-->
+ 	<context:annotation-config/>
+ 	
 	
 </beans>
